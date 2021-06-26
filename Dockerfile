@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certif
  && rm -rf /var/lib/apt/lists/* \
  && mkdir /mnt/blobfusetmp \
  && echo "blobfuse /var/www/html/data --tmp-path=/mnt/blobfusetmp" > /custstartup.sh \
- && echo -e "\n sh /entrypoint.sh" >> /custstartup.sh
+ && echo -e "\n sh /entrypoint.sh" >> /custstartup.sh \
+ && chmod +x /custstartup.sh
 
 ENTRYPOINT ["/custstartup.sh"]
 CMD ["apache2-foreground"]
