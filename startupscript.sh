@@ -1,6 +1,7 @@
 #!/bin/sh
 
-blobfuse /backup --container-name=$AZURE_CONTAINER_NAME --tmp-path=/mnt/blobfusetmp
+sudo -u www-data blobfuse /backup --container-name=$AZURE_CONTAINER_NAME --tmp-path=/mnt/blobfusetmp -o uid=33 -o gid=33
+
 set -eu
 # version_greater A B returns whether A > B
 version_greater() {
