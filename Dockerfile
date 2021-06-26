@@ -6,14 +6,15 @@ RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certif
  && apt-get update && apt-get install -y libcurl3-gnutls blobfuse fuse \
  && cd / \
  && wget --no-check-certificate https://raw.githubusercontent.com/sudipmandal/nextcloud-blobfuse-docker/master/startupscript.sh \
- && ls \
  && apt-get remove -y wget \
  && apt-get clean -y \
  && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
  && mkdir /mnt/blobfusetmp \
  && mkdir /backup \
- && chmod +x /startupscript.sh
+ && chmod +x /startupscript.sh \
+ && echo "---------" \
+ && cat /entrypoint.sh
 
 ENTRYPOINT ["/startupscript.sh"]
 CMD ["apache2-foreground"]
