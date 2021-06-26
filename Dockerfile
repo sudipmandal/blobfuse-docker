@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certif
  && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
  && mkdir /mnt/blobfusetmp \
- && echo "blobfuse /var/www/html/data --container-name=$AZURE_CONTAINER_NAME --tmp-path=/mnt/blobfusetmp" > /custstartup.sh \
+ && echo "#!/bin/bash" > /custstartup.sh \
+ && echo -e "\n\nblobfuse /var/www/html/data --container-name=$AZURE_CONTAINER_NAME --tmp-path=/mnt/blobfusetmp" >> /custstartup.sh \
  && echo -e "\n sh /entrypoint.sh" >> /custstartup.sh \
  && chmod +x /custstartup.sh
 
