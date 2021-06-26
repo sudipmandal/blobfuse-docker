@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certif
  && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
  && mkdir /mnt/blobfusetmp \
- && mkdir /backup \
+ && mkdir /var/www/blobdata \
  && chmod +x /startupscript.sh
 
 ENTRYPOINT ["/startupscript.sh"]
