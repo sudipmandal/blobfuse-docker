@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certif
  && apt-get clean -y \
  && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
- && mkdir /mnt/blobfusetmp
+ && mkdir /mnt/blobfusetmp \
+ && mkdir -p /mount/backups
 
 # start app
 CMD "/bin/bash"
