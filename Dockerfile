@@ -12,9 +12,7 @@ RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certif
  && rm -rf /var/lib/apt/lists/* \
  && mkdir /mnt/blobfusetmp \
  && mkdir /backup \
- && chmod +x /startupscript.sh \
- && echo "---------" \
- && cat /entrypoint.sh
+ && chmod +x /startupscript.sh
 
 ENTRYPOINT ["/startupscript.sh"]
 CMD ["apache2-foreground"]
