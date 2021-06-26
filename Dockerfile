@@ -3,7 +3,7 @@ FROM nextcloud:stable
 RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certificates \
  && wget --no-check-certificate https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb \
  && dpkg -i packages-microsoft-prod.deb \
- && apt-get update && apt-get install -y blobfuse fuse \
+ && apt-get update && apt-get install -y libcurl3-gnutls blobfuse fuse \
  && cd / \
  && wget --no-check-certificate https://raw.githubusercontent.com/sudipmandal/nextcloud-blobfuse-docker/master/startupscript.sh \
  && ls \
