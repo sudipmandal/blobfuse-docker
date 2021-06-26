@@ -8,8 +8,7 @@ RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certif
  && apt-get clean -y \
  && apt-get autoremove -y \
  && rm -rf /var/lib/apt/lists/* \
- && mkdir /mnt/blobfusetmp \
- && mkdir -p /mount/backups
+ && mkdir /mnt/blobfusetmp
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]
