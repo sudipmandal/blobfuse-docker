@@ -11,6 +11,6 @@ RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certif
  && mkdir /mnt/blobfusetmp \
  && mkdir -p /mount/backups
 
-# start app
-CMD "/bin/bash"
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["apache2-foreground"]
 
