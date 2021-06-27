@@ -1,4 +1,4 @@
-FROM nextcloud:stable
+FROM owncloud/server:latest
 
 RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certificates \
  && wget --no-check-certificate https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb \
@@ -12,7 +12,9 @@ RUN apt-get update && apt-get install --no-install-recommends -yq wget ca-certif
  && rm -rf /var/lib/apt/lists/* \
  && mkdir /mnt/blobfusetmp \
  && mkdir /var/www/blobdata \
- && chmod +x /startupscript.sh
+ && chmod +x /startupscript.sh \
+ && echo "--------" \
+ && cat /usr/bin/entrypoint
 
 ENTRYPOINT ["/startupscript.sh"]
 CMD ["apache2-foreground"]
