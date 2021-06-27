@@ -1,6 +1,7 @@
 #!/bin/sh
 
-blobfuse /backup --container-name=$AZURE_CONTAINER_NAME --tmp-path=/mnt/blobfusetmp
+echo "user_allow_other" >> /etc/fuse.conf
+blobfuse /backup --container-name=$AZURE_CONTAINER_NAME --tmp-path=/mnt/blobfusetmp -o allow_other
 chmod -R 777 /backup
 set -eu
 # version_greater A B returns whether A > B
