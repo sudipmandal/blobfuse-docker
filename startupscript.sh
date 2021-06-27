@@ -1,6 +1,6 @@
 #!/bin/sh
 
-blobfuse /var/www/blobdata --container-name=$AZURE_CONTAINER_NAME --tmp-path=/mnt/blobfusetmp -o uid=33 -o gid=33
+runuser --user www-data blobfuse /var/www/blobdata --container-name=$AZURE_CONTAINER_NAME --tmp-path=/mnt/blobfusetmp -o uid=33 -o gid=33
 chmod -R 777 /var/www/blobdata
 set -eu
 # version_greater A B returns whether A > B
