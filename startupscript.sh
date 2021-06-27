@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 blobfuse /backup --container-name=$AZURE_CONTAINER_NAME --tmp-path=/mnt/blobfusetmp
 chmod -R 777 /backup
